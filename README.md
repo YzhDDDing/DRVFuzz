@@ -1,9 +1,9 @@
-# DRVFuzz
+# DRVFuzz: Data-Sensitive RISC-V CPU Fuzzing (USENIX Security'26) 
 
 DRVFuzz is a RISC-V fuzzing and differential-testing toolkit. It generates
 random or data-sensitive RISC-V programs, builds ELF artifacts, executes them
 against multiple implementation wrappers, and localizes behavioral differences
-with replayable reports.
+with replayable reports. 
 
 The current tool lives in `DRVFuzz/` and depends on the local
 `riscv-instruction-crates/` crates.
