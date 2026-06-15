@@ -1,0 +1,10 @@
+[impl_timeout_secs]
+Spike = 2 
+Rocket = 10 
+XiangShan = 120 
+CVA6 = 5
+PicoRV32 = 10
+Ibex = 10
+Vex = 10
+Kronos = 10
+Srv32 = 120

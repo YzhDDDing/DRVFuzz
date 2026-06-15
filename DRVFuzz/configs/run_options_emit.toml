@@ -1,0 +1,7 @@
+[run_options]
+max_iterations = 200
+history_min_test_threshold = 50
+emit_execution_output_json = true 
+emit_execution_report_md = true 
+cleanup_successful_iteration_artifacts = false
+cleanup_successful_diff_run = false 

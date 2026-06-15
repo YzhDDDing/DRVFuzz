@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Rust build output
+target/
+DRVFuzz/target/
+riscv-instruction-crates/target/
+
+# Prebuilt RISC-V implementation binaries are distributed as GitHub Release assets.
+DRVFuzz/riscv_impls_bins/*
+!DRVFuzz/riscv_impls_bins/scripts/
+!DRVFuzz/riscv_impls_bins/scripts/**
+
+# Local release-asset payloads can exceed GitHub's normal Git file-size limit.
+release_assets/*.tar
+release_assets/*.tar.gz
+release_assets/*.tgz
+release_assets/*.zip

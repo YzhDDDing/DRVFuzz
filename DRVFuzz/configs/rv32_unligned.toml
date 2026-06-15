@@ -1,0 +1,30 @@
+[testcase_config]
+isa_base = "Rv32"
+extension_insts_count = 200
+mem_size = 32
+mem_access_offset = [0, 16]
+temp_register_range = [8, 12]
+unaligned_access_required = true
+
+[testcase_config.random_config]
+capture_fflags = true
+
+[testcase_config.random_config.csr_config]
+enable_machine_csrs = true
+enable_supervisor_csrs = false
+enable_hypervisor_csrs = false
+enable_virtual_supervisor_csrs = false
+enable_rnmi_csrs = false
+enable_floating_csrs = false
+enable_vector_csrs = false
+enable_debug_csrs = false
+
+[testcase_config.test_register_config]
+integer_register_range = [13, 20]
+floating_point_register_range = [13, 20]
+vector_register_range = [13, 20]
+
+[testcase_config.extension_inst_scaling]
+multiplier = 4
+min_insts = 20
+max_insts = 1000

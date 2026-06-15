@@ -1,0 +1,36 @@
+# Spike + Rocket share additional RV32 extensions beyond the full baseline:
+# D, F, H, Zaamo, Zalrsc, Zba, Zbb, Zbs, Zfh, Zicond, Zicsr, Zifencei
+
+# When a diff run finds no differences, clean the output directories produced by each implementation.
+cleanup_successful_iteration_artifacts = true
+
+# When the entire diff analysis ends with no exception removals and no write removals, delete this diff run's output directory.
+cleanup_successful_diff_run = true
+
+# Restrict diff analysis to the pair that exposes the extra shared extensions
+riscv_impls = ["Rocket", "Boom"]
+
+[testcase_config]
+isa_base = "Rv64"
+extension_insts_count = 200 
+mem_size = 64 
+temp_register_range = [6, 12]
+mem_access_offset = 16
+
+[testcase_config.test_register_config]
+integer_register_range = [13, 20]
+floating_point_register_range = [13, 20]
+vector_register_range = [13, 20]
+
+# Optional: cap the number of minimisation iterations
+max_iterations = 50
+history_min_test_threshold = 10
+
+# Optional: configure per-implementation timeouts (seconds); omit to disable
+[impl_timeout_secs]
+Rocket = 60
+Boom = 60
+
+# Output JSON and Markdown; disabled by default.
+# emit_execution_output_json = true
+# emit_execution_report_md = true

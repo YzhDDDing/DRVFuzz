@@ -1,0 +1,60 @@
+# Example configuration with instruction pattern exclusion
+# This demonstrates how to exclude certain instructions from generation
+
+# Output JSON and Markdown; disabled by default.
+emit_execution_output_json = true
+emit_execution_report_md = true
+
+riscv_impls = ["Spike", "Rocket", "CVA6"]
+
+[testcase_config]
+isa_base = "Rv64"
+extension_insts_count = 200
+mem_size = 64
+temp_register_range = [2, 4]
+
+
+# Exclude these specific instructions (exact match of instruction mnemonics)
+excluded_instruction_patterns = [
+    "fdiv.s",
+    "fsqrt.h",
+    "fcvt.wu.h",
+    "flt.h",
+    "fdiv.h",
+    "fsqrt.s",
+    "amomin.w.aqrl",
+    "amomax.w ",
+    "amoand.w.aqrl",
+    "amominu.w.aqrl",
+    "amoand.w.rl",
+    "amoswap.w.aqrl",
+    "amominu.w.aqrl",
+    "amomaxu.w.aqrl",
+    "amoor.w.aq",
+    "csrrwi",
+    "csrrw",
+    "csrrsi",
+    "csrrci",
+    "amomaxu.w.rl",
+    "amomin.w",
+    "amoor.w.aqrl",
+]
+
+
+[testcase_config.test_register_config]
+integer_register_range = [16, 25]
+floating_point_register_range = [16, 25]
+vector_register_range = [16, 25]
+
+# Optional: cap the number of minimisation iterations
+max_iterations = 50
+history_min_test_threshold = 10
+
+# Optional: pick a subset of implementations; omit this to run all supported cores
+
+# Optional: configure per-implementation timeouts (seconds); omit to disable
+[impl_timeout_secs]
+Spike = 30 
+Rocket = 30 
+PicoRV32 = 10
+CVA6 = 30  # Increased timeout for RV64 (64-bit instructions take longer)
